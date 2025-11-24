@@ -1,0 +1,21 @@
+# Шаблоны игнорирования в git
+# https://www.atlassian.com/ru/git/tutorials/saving-changes/gitignore#git-ignore-patterns
+#
+*example
+*.exe
+*.ii
+*.s
+*.o
+*.bin
+*.out
+*.ko
+*.elf
+*.odj
+*.app
+# vscode setings
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
