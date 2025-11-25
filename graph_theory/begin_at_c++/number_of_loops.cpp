@@ -3,18 +3,7 @@
 
 using namespace std;
 
-int countLoops(const vector<vector<int>>& adjacencyMatrix) {
-    int loopCount = 0;
-    int n = adjacencyMatrix.size();
-    
-    for (int i = 0; i < n; i++) {
-        if (adjacencyMatrix[i][i] == 1) {
-            loopCount++;
-        }
-    }
-    
-    return loopCount;
-}
+int count_loops(const vector<vector<int>>& adjacency_matrix);
 
 int main() {
     int n;
@@ -27,28 +16,38 @@ int main() {
         return 1;
     }
     
-    vector<vector<int>> adjacencyMatrix(n, vector<int>(n));
+    vector<vector<int>> adjacency_matrix(n, vector<int>(n));
     
     cout << "Введите матрицу смежности " << n << "x" << n << " (построчно, через пробел):" << endl;
     
     for (int i = 0; i < n; i++) {
         cout << "Строка " << (i + 1) << ": ";
         for (int j = 0; j < n; j++) {
-            cin >> adjacencyMatrix[i][j];
+            cin >> adjacency_matrix[i][j];
         }
     }
     
     cout << "\nВведенная матрица смежности:" << endl;
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            cout << adjacencyMatrix[i][j] << " ";
+            cout << adjacency_matrix[i][j] << " ";
         }
         cout << endl;
     }
     
-    int loops = countLoops(adjacencyMatrix);
+    int loops = count_loops(adjacency_matrix);
     
     cout << "\nКоличество петель в графе: " << loops << endl;
     
     return 0;
 }
+
+int count_loops(const vector<vector<int>>& adjacency_matrix) {
+    int loop_count = 0;
+    int n = adjacency_matrix.size();
+    
+    for (int i = 0; i < n; i++) {
+        if (adjacency_matrix[i][i] == 1) {
+            loop_count++;
+        }
+    }
